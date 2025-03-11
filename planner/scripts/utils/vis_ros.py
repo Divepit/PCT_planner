@@ -12,7 +12,7 @@ def traj2ros(traj):
         pose.pose.position.x = waypoint[0]
         pose.pose.position.y = waypoint[1]
         pose.pose.position.z = waypoint[2]
-        pose.pose.orientation.w = 1
+        pose.pose.orientation.w = 1.0
         path_msg.poses.append(pose)
 
     return path_msg
