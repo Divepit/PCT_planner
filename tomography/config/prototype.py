@@ -2,13 +2,21 @@ import numpy as np
 from sensor_msgs.msg import PointField
 
 
-POINT_FIELDS_XYZI = [
-    PointField('x', 0, PointField.FLOAT32, 1),
-    PointField('y', 4, PointField.FLOAT32, 1),
-    PointField('z', 8, PointField.FLOAT32, 1),
-    PointField('intensity', 12, PointField.FLOAT32, 1)
-]
+# POINT_FIELDS_XYZI = [
+#     PointField('x', 0, PointField.FLOAT32, 1),
+#     PointField('y', 4, PointField.FLOAT32, 1),
+#     PointField('z', 8, PointField.FLOAT32, 1),
+#     PointField('intensity', 12, PointField.FLOAT32, 1)
+# ]
 
+# ros2 compatible
+
+POINT_FIELDS_XYZI = [
+    PointField(offset=0, name='x', datatype=PointField.FLOAT32, count=1),
+    PointField(offset=4, name='y', datatype=PointField.FLOAT32, count=1),
+    PointField(offset=8, name='z', datatype=PointField.FLOAT32, count=1),
+    PointField(offset=12, name='intensity', datatype=PointField.FLOAT32, count=1)
+]
 
 def GRID_POINTS_XYZI(resolution, dim_x, dim_y):
     index_proto = np.zeros((dim_x * dim_y, 2), dtype=int)

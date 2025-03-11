@@ -9,7 +9,8 @@ sys.path.append('../')
 from lib import a_star, ele_planner, traj_opt
 
 rsg_root = os.path.dirname(os.path.abspath(__file__)) + '/../..'
-
+import faulthandler
+faulthandler.enable()
 
 class TomogramPlanner(object):
     def __init__(self, cfg):
